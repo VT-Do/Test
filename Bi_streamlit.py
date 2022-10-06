@@ -26,10 +26,7 @@ choice = st.sidebar.radio(
 
 
 
-menu2=["A", "B"]
-choice2=st.sidebar.selectbox("Choose dataset", menu2)
 
-SellerDomain = st.sidebar.text_input("SellerDomain", "AAAll")
 
 # st. set_page_config(layout="wide")
 
