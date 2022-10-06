@@ -82,7 +82,7 @@ elif choice=="APP":
 	
 	
 	st.dataframe(df, width=None, height=1000)
-	st.write(st.write('You selected:', menu_AdversitingSytem)
+	st.write('You selected:', menu_AdversitingSytem)
 	
 else:
 	# Store the initial value of widgets in session state
