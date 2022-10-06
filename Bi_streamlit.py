@@ -65,12 +65,12 @@ PubAccId = st.sidebar.text_area('PubAccId', '''
     ''')
 
 if choice=="WEB":
-	query="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 10000"
+	query="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 100000"
 	query_job = client.query(query)
 	df=client.query(query).to_dataframe()
 	st.dataframe(df, width=None, height=1000)
 elif choice=="APP":
-	query="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 10000"
+	query="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 100000"
 	query_job = client.query(query)
 	df=client.query(query).to_dataframe()
 	st.dataframe(df, width=None, height=1000)
