@@ -66,7 +66,7 @@ if choice=="WEB":
 	query="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 10000"
 	query_job = client.query(query)
 	df=client.query(query).to_dataframe()
-	menu1=['All']+df['AdvertisingSystem']
+	menu1=['All']+df['AdvertisingSystem'].to_list()
 	choice1=st.sidebar.selectbox("Advertising System", menu1)
 	st.dataframe(df, width=None, height=1000)
 elif choice=="APP":
