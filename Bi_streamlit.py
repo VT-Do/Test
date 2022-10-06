@@ -79,6 +79,7 @@ elif choice=="APP":
 	choice1=st.sidebar.selectbox("Seller Domain", menu_SellerDomain)
 	
 	df= df[(df['AdvertisingSystem'] == menu_AdversitingSytem) & (df['PubAccId'] == menu_PubAccId ) ]
+	st.write(menu_AdversitingSytem)
 	st.dataframe(df, width=None, height=1000)
 	st.write(menu_AdversitingSytem)
 else:
