@@ -80,6 +80,7 @@ elif choice=="APP":
 	
 	df= df[(df['AdvertisingSystem'] == menu_AdversitingSytem) & (df['PubAccId'] == menu_PubAccId ) ]
 	st.dataframe(df, width=None, height=1000)
+	st.write(menu_AdversitingSytem)
 else:
 	# Store the initial value of widgets in session state
 	if "visibility" not in st.session_state:
