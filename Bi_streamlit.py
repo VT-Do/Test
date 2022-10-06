@@ -60,7 +60,7 @@ if choice=="WEB":
 	menu_PubAccId=['All']+df['PubAccId'].to_list()
 	choice_PubAccId=st.sidebar.selectbox("Publisher Account ID", menu_PubAccId)
 	
-	menu_SellerDomain=['All']+df['SellerDomain'].to_list()
+	menu_SellerDomain=['All']+df['SellerDomain'].unique().to_list()
 	choice1=st.sidebar.selectbox("Seller Domain", menu_SellerDomain)
 	
 	st.dataframe(df, width=None, height=1000)
