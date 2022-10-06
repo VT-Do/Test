@@ -20,12 +20,12 @@ st.markdown(
 )
 # streamlit_app.py
 
-genre = st.radio(
+choice = st.sidebar.radio(
     "Select dataset",
     ('WEB','APP'))
 
-menu=["WEB", "APP"]
-choice=st.sidebar.selectbox("Choose dataset", menu)
+menu1=["WEB", "APP"]
+choice1=st.sidebar.selectbox("Choose dataset", menu1)
 
 menu2=["A", "B"]
 choice2=st.sidebar.selectbox("Choose dataset", menu2)
