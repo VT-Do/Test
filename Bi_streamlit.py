@@ -78,8 +78,10 @@ elif choice=="APP":
 	menu_SellerDomain=['All']+df['SellerDomain'].to_list()
 	choice1=st.sidebar.selectbox("Seller Domain", menu_SellerDomain)
 	
-	df= df[(df['AdvertisingSystem'] == menu_AdversitingSytem) & (df['PubAccId'] == menu_PubAccId ) ]
+	#df= df[(df['AdvertisingSystem'] == menu_AdversitingSytem) & (df['PubAccId'] == menu_PubAccId ) ]
 	st.write(menu_AdversitingSytem)
+	st.write(menu_PubAccId)
+	
 	st.dataframe(df, width=None, height=1000)
 	st.write(menu_AdversitingSytem)
 else:
