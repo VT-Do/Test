@@ -21,11 +21,10 @@ st.markdown(
 # streamlit_app.py
 
 choice = st.sidebar.radio(
-    "👉 Select dataset",
+    "Select dataset",
     ('WEB','APP','TEST'))
 
-menu1=["WEB", "APP"]
-choice1=st.sidebar.selectbox("Choose dataset", menu1)
+
 
 menu2=["A", "B"]
 choice2=st.sidebar.selectbox("Choose dataset", menu2)
@@ -44,7 +43,6 @@ with col2:
 with col3:
    st.write('')
 
-# option = st.selectbox('Advertising System',	('WEB', 'APP'))
 
 # Create API client.
 credentials = service_account.Credentials.from_service_account_info(
@@ -68,6 +66,8 @@ if choice=="WEB":
 	query="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 10000"
 	query_job = client.query(query)
 	df=client.query(query).to_dataframe()
+	menu1=["ABC", "XYZ"]
+	choice1=st.sidebar.selectbox("Advertising System", menu1)
 	st.dataframe(df, width=None, height=1000)
 elif choice=="APP":
 	query="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 10000"
