@@ -51,6 +51,7 @@ client = bigquery.Client(credentials=credentials)
 
 
 if choice=="WEB":
+	
 	query="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 10000"
 	query_job = client.query(query)
 	df=client.query(query).to_dataframe()
@@ -63,6 +64,8 @@ if choice=="WEB":
 	
 	menu_SellerDomain=['All']+df['SellerDomain'].unique().tolist()
 	choice1=st.sidebar.selectbox("Seller Domain", menu_SellerDomain)
+	
+	st.write('You selected:', menu_AdversitingSytem)
 	
 	st.dataframe(df, width=None, height=1000)
 elif choice=="APP":
