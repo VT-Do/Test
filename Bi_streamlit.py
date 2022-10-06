@@ -77,6 +77,8 @@ elif choice=="APP":
 	
 	menu_SellerDomain=['All']+df['SellerDomain'].to_list()
 	choice1=st.sidebar.selectbox("Seller Domain", menu_SellerDomain)
+	
+	df= df[(df['AdvertisingSystem'] == menu_AdversitingSytem) & (df['PubAccId'] == menu_PubAccId ) ]
 	st.dataframe(df, width=None, height=1000)
 else:
 	# Store the initial value of widgets in session state
