@@ -30,7 +30,7 @@ choice1=st.sidebar.selectbox("Choose dataset", menu1)
 menu2=["A", "B"]
 choice2=st.sidebar.selectbox("Choose dataset", menu2)
 
-selected = st.sidebar.text_input("", "Search...")
+SellerDomain = st.sidebar.text_input("SellerDomain", "All")
 
 # st. set_page_config(layout="wide")
 
