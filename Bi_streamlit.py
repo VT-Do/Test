@@ -66,7 +66,7 @@ if choice=="WEB":
 	menu_SellerDomain=['All']+df['SellerDomain'].unique().tolist()
 	choice1=st.sidebar.selectbox("Seller Domain", menu_SellerDomain)
 	
-	st.write('You selected:', menu_AdversitingSytem)
+	st.write('You selected:',choice_AdvertisingSystem)
 	
 	st.dataframe(df, width=None, height=1000)
 elif choice=="APP":
