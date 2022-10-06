@@ -70,7 +70,7 @@ elif choice=="APP":
 	query_job = client.query(query)
 	df=client.query(query).to_dataframe()
 	
-	menu_AdversitingSytem=['All']+set(df['AdvertisingSystem'].unique().tolist())
+	menu_AdversitingSytem=['All']+df['AdvertisingSystem'].unique().tolist()
 	choice_AdvertisingSystem=st.sidebar.selectbox("Advertising System", menu_AdversitingSytem)
 	
 	menu_PubAccId=['All']+df['PubAccId'].to_list()
