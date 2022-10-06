@@ -86,8 +86,7 @@ elif choice=="APP":
 	
 		
 		
-	df= df[((df['AdvertisingSystem'] == choice_AdvertisingSytem)|(choice_AdvertisingSytem=='All')) & ((df['PubAccId'] == choice_PubAccId )|(choice_PubAccId=='All') ) ]
-	
+	df= df[((df['AdvertisingSystem'] ==choice_AdvertisingSystem ) | (choice_AdvertisingSystem=="All"))  ]
 	
 	st.dataframe(df, width=None, height=1000)
 	st.write('You selected:', menu_AdversitingSytem)
