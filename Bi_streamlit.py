@@ -75,14 +75,15 @@ elif choice=="APP":
 	menu_PubAccId=['All']+df['PubAccId'].to_list()
 	choice_PubAccId=st.sidebar.selectbox("Publisher Account ID", menu_PubAccId)
 	
-	menu_SellerDomain=['All']+df['SellerDomain'].to_list()
+	menu_SellerDomain=['All']+df['SellerDomain'].distinct.to_list()
 	choice1=st.sidebar.selectbox("Seller Domain", menu_SellerDomain)
 	
 	#df= df[(df['AdvertisingSystem'] == menu_AdversitingSytem) & (df['PubAccId'] == menu_PubAccId ) ]
 	
 	
 	st.dataframe(df, width=None, height=1000)
-	st.write(menu_AdversitingSytem)
+	st.write(st.write('You selected:', menu_AdversitingSytem)
+	
 else:
 	# Store the initial value of widgets in session state
 	if "visibility" not in st.session_state:
