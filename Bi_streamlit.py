@@ -55,14 +55,14 @@ if choice=="WEB":
 	query_job = client.query(query)
 	df=client.query(query).to_dataframe()
 	
-	menu_AdversitingSytem=['All']+set(df['AdvertisingSystem'].to_list())
+	menu_AdversitingSytem=df['AdvertisingSystem'].unique()
 	choice_AdvertisingSystem=st.sidebar.selectbox("Advertising System", menu_AdversitingSytem)
 	
-	menu_PubAccId=['All']+set(df['PubAccId'].to_list())
-	choice_PubAccId=st.sidebar.selectbox("Publisher Account ID", menu_PubAccId)
+	#menu_PubAccId=['All']+set(df['PubAccId'].to_list())
+	#choice_PubAccId=st.sidebar.selectbox("Publisher Account ID", menu_PubAccId)
 	
-	menu_SellerDomain=['All']+set(df['SellerDomain'].to_list())
-	choice1=st.sidebar.selectbox("Seller Domain", menu_SellerDomain)
+	#menu_SellerDomain=['All']+set(df['SellerDomain'].to_list())
+	#choice1=st.sidebar.selectbox("Seller Domain", menu_SellerDomain)
 	
 	st.dataframe(df, width=None, height=1000)
 elif choice=="APP":
@@ -70,14 +70,14 @@ elif choice=="APP":
 	query_job = client.query(query)
 	df=client.query(query).to_dataframe()
 	
-	menu_AdversitingSytem=['All']+set(df['AdvertisingSystem'].to_list())
-	choice_AdvertisingSystem=st.sidebar.selectbox("Advertising System", menu_AdversitingSytem)
+	#menu_AdversitingSytem=['All']+set(df['AdvertisingSystem'].to_list())
+	#choice_AdvertisingSystem=st.sidebar.selectbox("Advertising System", menu_AdversitingSytem)
 	
-	menu_PubAccId=['All']+set(df['PubAccId'].to_list())
-	choice_PubAccId=st.sidebar.selectbox("Publisher Account ID", menu_PubAccId)
+	#menu_PubAccId=['All']+set(df['PubAccId'].to_list())
+	#choice_PubAccId=st.sidebar.selectbox("Publisher Account ID", menu_PubAccId)
 	
-	menu_SellerDomain=['All']+set(df['SellerDomain'].to_list())
-	choice1=st.sidebar.selectbox("Seller Domain", menu_SellerDomain)
+	#menu_SellerDomain=['All']+set(df['SellerDomain'].to_list())
+	#choice1=st.sidebar.selectbox("Seller Domain", menu_SellerDomain)
 	
 	#df= df[(df['AdvertisingSystem'] == menu_AdversitingSytem) & (df['PubAccId'] == menu_PubAccId ) ]
 	
