@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import streamlit as st
 from google.oauth2 import service_account
 from google.cloud import bigquery
@@ -54,7 +55,7 @@ if choice=="WEB":
 	query_job = client.query(query)
 	df=client.query(query).to_dataframe()
 	
-	menu_AdversitingSytem=['All']+df['AdvertisingSystem'].to_list()
+	menu_AdversitingSytem=['All']+df['AdvertisingSystem'].unique().to_list()
 	choice_AdvertisingSystem=st.sidebar.selectbox("Advertising System", menu_AdversitingSytem)
 	
 	menu_PubAccId=['All']+df['PubAccId'].to_list()
