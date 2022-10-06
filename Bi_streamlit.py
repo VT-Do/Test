@@ -83,14 +83,6 @@ elif choice=="APP":
 	menu_SellerDomain=['All']+df['SellerDomain'].unique().tolist()
 	choice1=st.sidebar.selectbox("Seller Domain", menu_SellerDomain)
 	
-	dict={"AdvertisingSytem": choice_AdvertisingSytem,"PubAccId":choice_PubAccId}
-	new_dict = {}
-	for key, value in dict.items():
-    		if value!='All':
-       			 new_dict[key] = value
-	for key, value in new_dict.items():
-		condition=
-	
 		
 	subset=[choice_AdvertisingSytem, choice_PubAccId]
 		
