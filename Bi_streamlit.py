@@ -26,7 +26,8 @@ choice = st.sidebar.radio(
     ('WEB','APP','TEST'))
 
 
-
+menu2=["A", "B"]
+choice2=st.sidebar.selectbox("Choose dataset", menu2)
 
 
 # st. set_page_config(layout="wide")
