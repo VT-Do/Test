@@ -73,8 +73,8 @@ if choice=="WEB":
 	menu_PubAccId=['All']+df['PubAccId'].to_list()
 	choice_PubAccId=st.sidebar.selectbox("Publisher Account ID", menu1)
 	
-	menu1=['All']+df['AdvertisingSystem'].to_list()
-	choice1=st.sidebar.selectbox("Advertising System", menu1)
+	menu_SellerDomain=['All']+df['SellerDomain'].to_list()
+	choice1=st.sidebar.selectbox("Seller Domain", menu1)
 	
 	st.dataframe(df, width=None, height=1000)
 elif choice=="APP":
