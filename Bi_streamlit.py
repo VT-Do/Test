@@ -58,10 +58,10 @@ if choice=="WEB":
 	menu_AdversitingSytem=['All']+df['AdvertisingSystem'].unique().tolist()
 	choice_AdvertisingSystem=st.sidebar.selectbox("Advertising System", menu_AdversitingSytem)
 	
-	menu_PubAccId=['All']+set(df['PubAccId'].unique().tolist())
+	menu_PubAccId=['All']+df['PubAccId'].unique().tolist()
 	choice_PubAccId=st.sidebar.selectbox("Publisher Account ID", menu_PubAccId)
 	
-	menu_SellerDomain=['All']+set(df['SellerDomain'].unique().tolist())
+	menu_SellerDomain=['All']+df['SellerDomain'].unique().tolist()
 	choice1=st.sidebar.selectbox("Seller Domain", menu_SellerDomain)
 	
 	st.dataframe(df, width=None, height=1000)
@@ -73,10 +73,10 @@ elif choice=="APP":
 	menu_AdversitingSytem=['All']+set(df['AdvertisingSystem'].unique().tolist())
 	choice_AdvertisingSystem=st.sidebar.selectbox("Advertising System", menu_AdversitingSytem)
 	
-	menu_PubAccId=['All']+set(df['PubAccId'].to_list())
+	menu_PubAccId=['All']+df['PubAccId'].to_list()
 	choice_PubAccId=st.sidebar.selectbox("Publisher Account ID", menu_PubAccId)
 	
-	menu_SellerDomain=['All']+set(df['SellerDomain'].unique().tolist())
+	menu_SellerDomain=['All']+df['SellerDomain'].unique().tolist()
 	choice1=st.sidebar.selectbox("Seller Domain", menu_SellerDomain)
 	
 	df= df[(df['AdvertisingSystem'] == menu_AdversitingSytem) & (df['PubAccId'] == menu_PubAccId ) ]
