@@ -3,7 +3,7 @@ import streamlit as st
 from google.oauth2 import service_account
 from google.cloud import bigquery
 
-st.set_page_config(page_title="The Ramsey Highlights", layout="wide")
+st.set_page_config(page_title="BI-team", layout="wide")
 st.markdown(
     """
     <style>
@@ -21,7 +21,7 @@ st.markdown(
 # streamlit_app.py
 
 choice = st.sidebar.radio(
-    "Select dataset",
+    "👉 Select dataset",
     ('WEB','APP','TEST'))
 
 menu1=["WEB", "APP"]
@@ -44,7 +44,7 @@ with col2:
 with col3:
    st.write('')
 
-# option = st.selectbox('Please choose the dataset',	('WEB', 'APP'))
+# option = st.selectbox('Advertising System',	('WEB', 'APP'))
 
 # Create API client.
 credentials = service_account.Credentials.from_service_account_info(
