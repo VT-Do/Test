@@ -84,7 +84,18 @@ elif choice=="APP":
 	menu_SellerDomain=['All']+df['SellerDomain'].unique().tolist()
 	choice1=st.sidebar.selectbox("Seller Domain", menu_SellerDomain)
 	
-	df= df[(df['AdvertisingSystem'] == choice_AdvertisingSytem) & (df['PubAccId'] == choice_PubAccId ) ]
+	dict={"AdvertisingSytem": choice_AdvertisingSytem,"PubAccId":choice_PubAccId}
+	new_dict = {}
+	for key, value in dict.items():
+    		if value!='All':
+       			 new_dict[key] = value
+	for key, value in new_dict.items():
+		condition=
+	
+		
+	subset=[choice_AdvertisingSytem, choice_PubAccId]
+		
+	df= df[((df['AdvertisingSystem'] == choice_AdvertisingSytem)|(choice_PubAccId=='All')) & ((df['PubAccId'] == choice_PubAccId )|(choice_PubAccId=='All') ) ]
 	
 	
 	st.dataframe(df, width=None, height=1000)
