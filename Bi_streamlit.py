@@ -26,8 +26,8 @@ choice = st.sidebar.radio(
     ('WEB','APP','TEST'))
 
 
-menu2=["A", "B"]
-choice2=st.sidebar.selectbox("Choose dataset", menu2)
+# menu2=["A", "B"]
+# choice2=st.sidebar.selectbox("Choose dataset", menu2)
 
 
 # st. set_page_config(layout="wide")
@@ -64,9 +64,9 @@ if choice=="WEB":
 	choice_PubAccId=st.sidebar.selectbox("Publisher Account ID", menu_PubAccId)
 	
 	menu_SellerDomain=['All']+df['SellerDomain'].unique().tolist()
-	choice1=st.sidebar.selectbox("Seller Domain", menu_SellerDomain)
+	choice_SellerDomain=st.sidebar.selectbox("Seller Domain", menu_SellerDomain)
 
-	df= df[((df['AdvertisingSystem'] ==choice_AdvertisingSystem ) | (choice_AdvertisingSystem=="All")) & ((df['PubAccId'] ==choice_PubAccId ) | (choice_PubAccId=="All")) ]
+	df= df[((df['AdvertisingSystem'] ==choice_AdvertisingSystem ) | (choice_AdvertisingSystem=="All")) & ((df['PubAccId'] ==choice_PubAccId ) | (choice_PubAccId=="All")) &((df['SellerDomain'] ==choice_SellerDomain ) | (choice_SellerDomain=="All"))]
 	
 	
 	st.dataframe(df, width=None, height=1000)
@@ -86,7 +86,7 @@ elif choice=="APP":
 	
 		
 		
-	df= df[((df['AdvertisingSystem'] ==choice_AdvertisingSystem ) | (choice_AdvertisingSystem=="All"))  ]
+	df= df[((df['AdvertisingSystem'] ==choice_AdvertisingSystem ) | (choice_AdvertisingSystem=="All")) & ((df['PubAccId'] ==choice_PubAccId ) | (choice_PubAccId=="All")) &((df['SellerDomain'] ==choice_SellerDomain ) | (choice_SellerDomain=="All"))]
 	
 	st.dataframe(df, width=None, height=1000)
 	st.write('You selected:', menu_AdversitingSytem)
