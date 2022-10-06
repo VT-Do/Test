@@ -24,6 +24,9 @@ st.markdown(
 menu=["WEB", "APP"]
 choice=st.sidebar.selectbox("Choose dataset", menu)
 
+menu2=["A", "B"]
+choice2=st.sidebar.selectbox("Choose dataset", menu2)
+
 # st. set_page_config(layout="wide")
 
 col1, col2,col3 = st.columns(3)
