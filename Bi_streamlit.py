@@ -53,6 +53,14 @@ client = bigquery.Client(credentials=credentials)
 #if 'sidebar_state' not in st.session_state:
 	#st.session_state.sidebar_state = 'expanded'
 	
+txt = st.text_area('Text to analyze', '''
+    It was the best of times, it was the worst of times, it was
+    the age of wisdom, it was the age of foolishness, it was
+    the epoch of belief, it was the epoch of incredulity, it
+    was the season of Light, it was the season of Darkness, it
+    was the spring of hope, it was the winter of despair, (...)
+    ''')
+st.write('Sentiment:', run_sentiment_analysis(txt))
 
 if choice=="WEB":
 	query="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 1000"
