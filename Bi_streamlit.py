@@ -65,10 +65,10 @@ if choice=="WEB":
 	df=client.query(query).to_dataframe()
 	
 	menu_AdversitingSytem=['All']+df['AdvertisingSystem'].to_list()
-	choice_AdvertisingSystem=st.sidebar.selectbox("Advertising System", menu1)
+	choice_AdvertisingSystem=st.sidebar.selectbox("Advertising System", menu_AdversitingSytem)
 	
 	menu_PubAccId=['All']+df['PubAccId'].to_list()
-	choice_PubAccId=st.sidebar.selectbox("Publisher Account ID", menu1)
+	choice_PubAccId=st.sidebar.selectbox("Publisher Account ID", menu_PubAccId)
 	
 	menu_SellerDomain=['All']+df['SellerDomain'].to_list()
 	choice1=st.sidebar.selectbox("Seller Domain", menu1)
