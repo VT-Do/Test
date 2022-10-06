@@ -30,6 +30,8 @@ choice1=st.sidebar.selectbox("Choose dataset", menu1)
 menu2=["A", "B"]
 choice2=st.sidebar.selectbox("Choose dataset", menu2)
 
+selected = st.sidebar.text_input("", "Search...")
+
 # st. set_page_config(layout="wide")
 
 col1, col2,col3 = st.columns(3)
