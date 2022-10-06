@@ -47,17 +47,7 @@ credentials = service_account.Credentials.from_service_account_info(
 )
 client = bigquery.Client(credentials=credentials)
 
-#if 'sidebar_state' not in st.session_state:
-	#st.session_state.sidebar_state = 'expanded'
-	
-AdvertisingSystem = st.sidebar.text_area('AdvertisingSystem', '''
-    All
-    ''')
-# st.write('Sentiment:', run_sentiment_analysis(txt))
 
-PubAccId = st.sidebar.text_area('PubAccId', '''
-    All
-    ''')
 
 if choice=="WEB":
 	query="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 10000"
@@ -71,7 +61,7 @@ if choice=="WEB":
 	choice_PubAccId=st.sidebar.selectbox("Publisher Account ID", menu_PubAccId)
 	
 	menu_SellerDomain=['All']+df['SellerDomain'].to_list()
-	choice1=st.sidebar.selectbox("Seller Domain", menu1)
+	choice1=st.sidebar.selectbox("Seller Domain", menu_SellerDomain)
 	
 	st.dataframe(df, width=None, height=1000)
 elif choice=="APP":
