@@ -53,10 +53,14 @@ client = bigquery.Client(credentials=credentials)
 #if 'sidebar_state' not in st.session_state:
 	#st.session_state.sidebar_state = 'expanded'
 	
-txt = st.sidebar.text_area('AdvertisingSystem', '''
-    ABC
+AdvertisingSystem = st.sidebar.text_area('AdvertisingSystem', '''
+    All
     ''')
 # st.write('Sentiment:', run_sentiment_analysis(txt))
+
+DomainName = st.sidebar.text_area('AdvertisingSystem', '''
+    All
+    ''')
 
 if choice=="WEB":
 	query="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 1000"
