@@ -58,7 +58,7 @@ AdvertisingSystem = st.sidebar.text_area('AdvertisingSystem', '''
     ''')
 # st.write('Sentiment:', run_sentiment_analysis(txt))
 
-DomainName = st.sidebar.text_area('AdvertisingSystem', '''
+DomainName = st.sidebar.text_area('DomainName', '''
     All
     ''')
 
