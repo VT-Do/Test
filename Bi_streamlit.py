@@ -55,7 +55,7 @@ if choice=="WEB":
 	query_job = client.query(query)
 	df=client.query(query).to_dataframe()
 	
-	menu_AdversitingSytem=df['AdvertisingSystem'].unique()
+	menu_AdversitingSytem=df['AdvertisingSystem'].unique().tolist()
 	choice_AdvertisingSystem=st.sidebar.selectbox("Advertising System", menu_AdversitingSytem)
 	
 	#menu_PubAccId=['All']+set(df['PubAccId'].to_list())
