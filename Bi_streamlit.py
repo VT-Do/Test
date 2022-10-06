@@ -69,13 +69,13 @@ elif choice=="APP":
 	query_job = client.query(query)
 	df=client.query(query).to_dataframe()
 	
-	menu_AdversitingSytem=['All']+df['AdvertisingSystem'].to_list()
+	menu_AdversitingSytem=['All']+df['AdvertisingSystem'].unique().to_list()
 	choice_AdvertisingSystem=st.sidebar.selectbox("Advertising System", menu_AdversitingSytem)
 	
-	menu_PubAccId=['All']+df['PubAccId'].to_list()
+	menu_PubAccId=['All']+df['PubAccId'].unique().to_list()
 	choice_PubAccId=st.sidebar.selectbox("Publisher Account ID", menu_PubAccId)
 	
-	menu_SellerDomain=['All']+df['SellerDomain'].distinct.to_list()
+	menu_SellerDomain=['All']+df['SellerDomain'].unique().to_list()
 	choice1=st.sidebar.selectbox("Seller Domain", menu_SellerDomain)
 	
 	#df= df[(df['AdvertisingSystem'] == menu_AdversitingSytem) & (df['PubAccId'] == menu_PubAccId ) ]
