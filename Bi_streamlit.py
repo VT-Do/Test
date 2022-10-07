@@ -22,15 +22,7 @@ st.markdown(
 # streamlit_app.py
 
 
-query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 10000"
-query_job1 = client.query(query1)
-df1=client.query(query1).to_dataframe()
 
-
-query2="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 10000"
-query_job2 = client.query(query2)
-df2=client.query(query2).to_dataframe()
-	
 
 
 choice = st.sidebar.radio(
@@ -61,6 +53,16 @@ credentials = service_account.Credentials.from_service_account_info(
 )
 client = bigquery.Client(credentials=credentials)
 
+
+query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 10000"
+query_job1 = client.query(query1)
+df1=client.query(query1).to_dataframe()
+
+
+query2="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 10000"
+query_job2 = client.query(query2)
+df2=client.query(query2).to_dataframe()
+	
 
 
 if choice=="WEB":
