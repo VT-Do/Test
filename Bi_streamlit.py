@@ -64,7 +64,7 @@ query_job2 = client.query(query2)
 df2=client.query(query2).to_dataframe()
 	
 
-
+"""
 if choice=="WEB":
 	
 	
