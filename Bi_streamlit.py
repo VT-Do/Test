@@ -21,6 +21,18 @@ st.markdown(
 )
 # streamlit_app.py
 
+
+query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 10000"
+query_job1 = client.query(query1)
+df1=client.query(query1).to_dataframe()
+
+
+query2="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 10000"
+query_job2 = client.query(query2)
+df2=client.query(query2).to_dataframe()
+	
+
+
 choice = st.sidebar.radio(
     "Select dataset",
     ('WEB','APP','TEST'))
@@ -53,41 +65,36 @@ client = bigquery.Client(credentials=credentials)
 
 if choice=="WEB":
 	
-	query="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 10000"
-	query_job = client.query(query)
-	df=client.query(query).to_dataframe()
 	
-	menu_AdversitingSytem=['All']+df['AdvertisingSystem'].unique().tolist()
+	
+	menu_AdversitingSytem=['All']+df1['AdvertisingSystem'].unique().tolist()
 	choice_AdvertisingSystem=st.sidebar.selectbox("Advertising System", menu_AdversitingSytem)
 	
-	menu_PubAccId=['All']+df['PubAccId'].unique().tolist()
+	menu_PubAccId=['All']+df1['PubAccId'].unique().tolist()
 	choice_PubAccId=st.sidebar.selectbox("Publisher Account ID", menu_PubAccId)
 	
-	menu_SellerDomain=['All']+df['SellerDomain'].unique().tolist()
+	menu_SellerDomain=['All']+df1['SellerDomain'].unique().tolist()
 	choice_SellerDomain=st.sidebar.selectbox("Seller Domain", menu_SellerDomain)
 
-	df= df[((df['AdvertisingSystem'] ==choice_AdvertisingSystem ) | (choice_AdvertisingSystem=="All")) & ((df['PubAccId'] ==choice_PubAccId ) | (choice_PubAccId=="All")) &((df['SellerDomain'] ==choice_SellerDomain ) | (choice_SellerDomain=="All"))]
-	df=df.fillna('-')
+	df1= df1[((df1['AdvertisingSystem'] ==choice_AdvertisingSystem ) | (choice_AdvertisingSystem=="All")) & ((df1['PubAccId'] ==choice_PubAccId ) | (choice_PubAccId=="All")) &((df1['SellerDomain'] ==choice_SellerDomain ) | (choice_SellerDomain=="All"))]
+	df1=df1.fillna('-')
 	
-	st.dataframe(df, width=None, height=1000)
+	st.dataframe(df1, width=None, height=1000)
 elif choice=="APP":
-	query="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 10000"
-	query_job = client.query(query)
-	df=client.query(query).to_dataframe()
+
 	
-	
-	menu_AdversitingSytem=['All']+df['AdvertisingSystem'].unique().tolist()
+	menu_AdversitingSytem=['All']+df2['AdvertisingSystem'].unique().tolist()
 	choice_AdvertisingSystem=st.sidebar.selectbox("Advertising System", menu_AdversitingSytem)
 	
-	menu_PubAccId=['All']+df['PubAccId'].unique().tolist()
+	menu_PubAccId=['All']+df2['PubAccId'].unique().tolist()
 	choice_PubAccId=st.sidebar.selectbox("Publisher Account ID", menu_PubAccId)
 	
-	menu_SellerDomain=['All']+df['SellerDomain'].unique().tolist()
+	menu_SellerDomain=['All']+df2['SellerDomain'].unique().tolist()
 	choice_SellerDomain=st.sidebar.selectbox("Seller Domain", menu_SellerDomain)
 		
 		
-	df= df[((df['AdvertisingSystem'] ==choice_AdvertisingSystem ) | (choice_AdvertisingSystem=="All")) & ((df['PubAccId'] ==choice_PubAccId ) | (choice_PubAccId=="All")) &((df['SellerDomain'] ==choice_SellerDomain ) | (choice_SellerDomain=="All"))]
-	df=df.fillna('-')
+	df2= df2[((df2['AdvertisingSystem'] ==choice_AdvertisingSystem ) | (choice_AdvertisingSystem=="All")) & ((df2['PubAccId'] ==choice_PubAccId ) | (choice_PubAccId=="All")) &((df2['SellerDomain'] ==choice_SellerDomain ) | (choice_SellerDomain=="All"))]
+	df2=df2.fillna('-')
 	
 	
 	st.dataframe(df, width=None, height=1000)
