@@ -67,7 +67,7 @@ if choice=="WEB":
 	choice_SellerDomain=st.sidebar.selectbox("Seller Domain", menu_SellerDomain)
 
 	df= df[((df['AdvertisingSystem'] ==choice_AdvertisingSystem ) | (choice_AdvertisingSystem=="All")) & ((df['PubAccId'] ==choice_PubAccId ) | (choice_PubAccId=="All")) &((df['SellerDomain'] ==choice_SellerDomain ) | (choice_SellerDomain=="All"))]
-	
+	df.fillna('-')
 	
 	st.dataframe(df, width=None, height=1000)
 elif choice=="APP":
