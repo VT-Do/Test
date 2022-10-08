@@ -86,7 +86,7 @@ if choice=="WEB":
 	
 
 	df1= df1[((df1['AdvertisingSystem'] ==choice_AdvertisingSystem ) | (choice_AdvertisingSystem=="All")) & ((df1['PubAccId'] ==choice_PubAccId ) | (choice_PubAccId=="All")) &((df1['SellerDomain'] ==choice_SellerDomain ) | (choice_SellerDomain=="All"))]
-	df1=df1.fillna('-')
+	df1=df1.fillna('-').reset_index(drop=True)
 	
 	csv = convert_df(df1)
 
