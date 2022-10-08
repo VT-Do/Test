@@ -77,11 +77,14 @@ if choice=="WEB":
 	
 	menu_SellerDomain=['All']+df1['SellerDomain'].unique().tolist()
 	choice_SellerDomain=st.sidebar.selectbox("Seller Domain", menu_SellerDomain)
+	
+	st.sidebar.download_button(label="Download data as CSV",data=csv,file_name='large_df.csv',mime='text/csv',)
 
 	df1= df1[((df1['AdvertisingSystem'] ==choice_AdvertisingSystem ) | (choice_AdvertisingSystem=="All")) & ((df1['PubAccId'] ==choice_PubAccId ) | (choice_PubAccId=="All")) &((df1['SellerDomain'] ==choice_SellerDomain ) | (choice_SellerDomain=="All"))]
 	df1=df1.fillna('-')
 	
 	st.dataframe(df1, width=None, height=1000)
+	
 elif choice=="APP":
 
 	
