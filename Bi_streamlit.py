@@ -78,7 +78,19 @@ if choice=="WEB":
 	menu_SellerDomain=['All']+df1['SellerDomain'].unique().tolist()
 	choice_SellerDomain=st.sidebar.selectbox("Seller Domain", menu_SellerDomain)
 	
-	st.sidebar.download_button(label="Download data as CSV",data=csv,file_name='large_df.csv',mime='text/csv',)
+	@st.cache
+	def convert_df(df):
+    	# IMPORTANT: Cache the conversion to prevent computation on every rerun
+    		return df.to_csv().encode('utf-8')
+
+	csv = convert_df(df1)
+
+	st.download_button(
+    		label="Download data as CSV",
+    		data=csv,
+    		file_name='large_df.csv',
+    		mime='text/csv',
+		)
 
 	df1= df1[((df1['AdvertisingSystem'] ==choice_AdvertisingSystem ) | (choice_AdvertisingSystem=="All")) & ((df1['PubAccId'] ==choice_PubAccId ) | (choice_PubAccId=="All")) &((df1['SellerDomain'] ==choice_SellerDomain ) | (choice_SellerDomain=="All"))]
 	df1=df1.fillna('-')
