@@ -86,14 +86,14 @@ if choice=="WEB":
 	
 
 	df1= df1[((df1['AdvertisingSystem'] ==choice_AdvertisingSystem ) | (choice_AdvertisingSystem=="All")) & ((df1['PubAccId'] ==choice_PubAccId ) | (choice_PubAccId=="All")) &((df1['SellerDomain'] ==choice_SellerDomain ) | (choice_SellerDomain=="All"))]
-	df1=df1.fillna('-').reset_index(drop=True)
+	df1=df1.fillna('-')
 	
-	csv = convert_df(df1)
+	csv = convert_df(df1.reset_index(drop=True))
 
 	st.download_button(
     		label="Download data as CSV",
     		data=csv,
-    		file_name='large_df.csv',
+    		file_name='data.csv',
     		mime='text/csv',
 		)
 	
