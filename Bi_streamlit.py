@@ -78,11 +78,12 @@ df1=load_data1().copy()
 df2=load_data2().copy()
 
 st.write(df1.count())
-if choice=="WEB":
 	
 	
 	
 st.write(df2.count())
+
+
 if choice=="WEB":
 		
 	
