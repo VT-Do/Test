@@ -109,7 +109,7 @@ if choice=="WEB":
     		mime='text/csv',
 		)
 	
-	st.dataframe(df1, width=None, height=1000)
+	st.dataframe(df1, width=None, height=100000)
 	
 elif choice=="APP":
 
@@ -128,7 +128,7 @@ elif choice=="APP":
 	df2=df2.fillna('-')
 	
 	
-	st.dataframe(df2, width=None, height=1000)
+	st.dataframe(df2, width=None, height=100000)
 	st.write('You selected:', menu_AdversitingSytem)
 	
 else:
