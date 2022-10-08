@@ -69,18 +69,22 @@ def load_data1():
 
 
 @st.cache
-def load_data1():
+def load_data2():
 	query2="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains`"
 	query_job2 = client.query(query2)
 	return client.query(query2).to_dataframe()
 	
 df1=load_data1().copy()
-df2=load_data1().copy()
+df2=load_data2().copy()
 
 st.write(df1.count())
 if choice=="WEB":
 	
 	
+	
+st.write(df2.count())
+if choice=="WEB":
+		
 	
 	menu_AdversitingSytem=['All']+df1['AdvertisingSystem'].unique().tolist()
 	choice_AdvertisingSystem=st.sidebar.selectbox("Advertising System", menu_AdversitingSytem)
