@@ -54,12 +54,12 @@ credentials = service_account.Credentials.from_service_account_info(
 client = bigquery.Client(credentials=credentials)
 
 
-query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 100000"
+query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 10000"
 query_job1 = client.query(query1)
 df1=client.query(query1).to_dataframe()
 
 
-query2="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 100000"
+query2="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 10000"
 query_job2 = client.query(query2)
 df2=client.query(query2).to_dataframe()
 	
@@ -81,7 +81,7 @@ if choice=="WEB":
 	df1= df1[((df1['AdvertisingSystem'] ==choice_AdvertisingSystem ) | (choice_AdvertisingSystem=="All")) & ((df1['PubAccId'] ==choice_PubAccId ) | (choice_PubAccId=="All")) &((df1['SellerDomain'] ==choice_SellerDomain ) | (choice_SellerDomain=="All"))]
 	df1=df1.fillna('-')
 	
-	st.dataframe(df1, width=None, height=10000)
+	st.dataframe(df1, width=None, height=1000)
 elif choice=="APP":
 
 	
@@ -99,7 +99,7 @@ elif choice=="APP":
 	df2=df2.fillna('-')
 	
 	
-	st.dataframe(df2, width=None, height=10000)
+	st.dataframe(df2, width=None, height=1000)
 	st.write('You selected:', menu_AdversitingSytem)
 	
 else:
