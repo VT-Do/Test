@@ -62,7 +62,7 @@ client = bigquery.Client(credentials=credentials)
 
 @st.cache
 def load_data1(): 
-	query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains`"
+	query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 1000000"
 	query_job1 = client.query(query1)
 	return client.query(query1).to_dataframe()
 
