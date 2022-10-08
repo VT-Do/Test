@@ -135,7 +135,7 @@ elif choice=="APP":
 	
 	
 	st.dataframe(df2)
-	st.write('You selected:', menu_AdversitingSytem)
+
 	
 else:
 	# Store the initial value of widgets in session state
