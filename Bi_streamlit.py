@@ -29,7 +29,7 @@ choice = st.sidebar.radio(
     "Select dataset",
     ('WEB','APP','TEST'))
 
-uploaded_file = st.file_uploader("Choose a file")
+uploaded_file = st.sidebar.file_uploader("Choose a file")
 
 if uploaded_file is not None:
     # To read file as bytes:
