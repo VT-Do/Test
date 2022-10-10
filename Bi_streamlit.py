@@ -16,7 +16,7 @@ choice = st.sidebar.radio(
     "Select dataset",
     ('WEB','APP','TEST'))
 
-List_lines= st.text_area('AdvertisingSystem', '''Ex: google.com, 12335, DIRECT
+List_lines= st.sidebar.text_area('AdvertisingSystem', '''Ex: google.com, 12335, DIRECT
     ''')
 
 uploaded_file = st.sidebar.file_uploader("Choose a file")
