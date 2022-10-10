@@ -16,15 +16,13 @@ choice = st.sidebar.radio(
     "Select dataset",
     ('WEB','APP','TEST'))
 
-List_lines= st.text_area('AdvertisingSystem', '''Ex1: ['A.com', 'B.com']
+List_lines= st.text_area('AdvertisingSystem', '''Ex: google.com, 12335, DIRECT
     ''')
 
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
     # To read file as bytes:
     bytes_data = uploaded_file.getvalue()
-    st.write(bytes_data)
-
 
     # Can be used wherever a "file-like" object is accepted:
     dataframe = pd.read_csv(uploaded_file)
