@@ -39,9 +39,11 @@ i2 = st.checkbox("reset button")
 
 
 
- st.select_slider("Displayed values:", ["Normalized", "Absolute"])
-	
-	
+from streamlit_toggle import st_toggleswitch
+
+awesomeness_enabled = st_toggleswitch("Enable awesomeness")
+if awesomeness_enabled:
+    st.write("Awesomeness has been enabled!")
 
 
 # st. set_page_config(layout="wide")
