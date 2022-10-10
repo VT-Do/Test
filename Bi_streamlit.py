@@ -18,20 +18,16 @@ choice = st.sidebar.radio(
 
 col1, col2,col3 = st.columns(3)
 with col1:
-	List_AdvertisingSystem= st.text_area('AdvertisingSystem', '''Ex: ['A.com', 'B.com']
+	List_AdvertisingSystem= st.text_area('AdvertisingSystem', '''Ex1: ['A.com', 'B.com']
     ''')
 
 	Upload_AdvertisingSystem= st.file_uploader("Upload a csv file")
 with col2:
-	List_DomainName= st.text_area('DomainName', '''Ex: ['A.com', 'B.com']
+	List_DomainName= st.text_area('DomainName', '''Ex2: ['A.com', 'B.com']
     ''')
 
 	Upload_DomainName= st.file_uploader("Upload a csv file")
-with col3:
-	List_PubAccId= st.text_area('AdvertisingSystem', '''Ex: ['A.com', 'B.com']
-    ''')
 
-	Upload_PubAccId= st.file_uploader("Upload a csv file")
 	
 	
 if Upload_AdvertisingSystem is not None:
@@ -40,8 +36,8 @@ if Upload_AdvertisingSystem is not None:
     #st.write(bytes_data)
 
     # Can be used wherever a "file-like" object is accepted:
-    dataframe = pd.read_csv(uploaded_file)
-    st.write(dataframe)
+    dataframe1 = pd.read_csv(uploaded_file)
+    st.write(dataframe1)
 
 if Upload_DomainName is not None:
     # To read file as bytes:
@@ -49,17 +45,9 @@ if Upload_DomainName is not None:
     #st.write(bytes_data)
 
     # Can be used wherever a "file-like" object is accepted:
-    dataframe = pd.read_csv(uploaded_file)
-    st.write(dataframe)
+    dataframe2 = pd.read_csv(uploaded_file)
+    st.write(dataframe2)
 	
-if Upload_PubAccId is not None:
-    # To read file as bytes:
-    #bytes_data = uploaded_file.getvalue()
-    #st.write(bytes_data)
-
-    # Can be used wherever a "file-like" object is accepted:
-    dataframe = pd.read_csv(uploaded_file)
-    st.write(dataframe)
 
 # st. set_page_config(layout="wide")
 
