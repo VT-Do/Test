@@ -19,7 +19,7 @@ choice = st.sidebar.radio(
 List_lines= st.text_area('AdvertisingSystem', '''Ex: google.com, 12335, DIRECT
     ''')
 
-uploaded_file = st.file_uploader("Choose a file")
+uploaded_file = st.sidebar.file_uploader("Choose a file")
 if uploaded_file is not None:
     # To read file as bytes:
     bytes_data = uploaded_file.getvalue()
@@ -54,7 +54,7 @@ client = bigquery.Client(credentials=credentials)
 def load_data1(): 
 	query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 100000"
 	query_job1 = client.query(query1)
-	return client.query(query1).to_dataframe()
+	return client.query(query1).to_dataframe().fillna('-')
 
 
 
@@ -62,7 +62,7 @@ def load_data1():
 def load_data2():
 	query2="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 100000"
 	query_job2 = client.query(query2)
-	return client.query(query2).to_dataframe()
+	return client.query(query2).to_dataframe().fillna('-')
 
 	
 df1=load_data1().copy()
@@ -75,14 +75,8 @@ df2=load_data2().copy()
 if choice=="WEB":
 		
 	
-	menu_AdversitingSytem=['All']+df1['AdvertisingSystem'].unique().tolist()
-	choice_AdvertisingSystem=st.sidebar.selectbox("Advertising System", menu_AdversitingSytem)
+
 	
-	menu_PubAccId=['All']+df1['PubAccId'].unique().tolist()
-	choice_PubAccId=st.sidebar.selectbox("Publisher Account ID", menu_PubAccId)
-	
-	menu_SellerDomain=['All']+df1['SellerDomain'].unique().tolist()
-	choice_SellerDomain=st.sidebar.selectbox("Seller Domain", menu_SellerDomain)
 	
 	@st.cache
 	def convert_df(df):
@@ -90,9 +84,7 @@ if choice=="WEB":
     		return df.to_csv().encode('utf-8')
 
 	
-
-	df1= df1[((df1['AdvertisingSystem'] ==choice_AdvertisingSystem ) | (choice_AdvertisingSystem=="All")) & ((df1['PubAccId'] ==choice_PubAccId ) | (choice_PubAccId=="All")) &((df1['SellerDomain'] ==choice_SellerDomain ) | (choice_SellerDomain=="All"))]
-	df1=df1.fillna('-').reset_index(drop=True)
+	
 	
 	csv = convert_df(df1)
 
@@ -107,20 +99,22 @@ if choice=="WEB":
 	
 elif choice=="APP":
 
+	@st.cache
+	def convert_df(df):
+    	# IMPORTANT: Cache the conversion to prevent computation on every rerun
+    		return df.to_csv().encode('utf-8')
+
 	
-	menu_AdversitingSytem=['All']+df2['AdvertisingSystem'].unique().tolist()
-	choice_AdvertisingSystem=st.sidebar.selectbox("Advertising System", menu_AdversitingSytem)
 	
-	menu_PubAccId=['All']+df2['PubAccId'].unique().tolist()
-	choice_PubAccId=st.sidebar.selectbox("Publisher Account ID", menu_PubAccId)
 	
-	menu_SellerDomain=['All']+df2['SellerDomain'].unique().tolist()
-	choice_SellerDomain=st.sidebar.selectbox("Seller Domain", menu_SellerDomain)
-		
-		
-	df2= df2[((df2['AdvertisingSystem'] ==choice_AdvertisingSystem ) | (choice_AdvertisingSystem=="All")) & ((df2['PubAccId'] ==choice_PubAccId ) | (choice_PubAccId=="All")) &((df2['SellerDomain'] ==choice_SellerDomain ) | (choice_SellerDomain=="All"))]
-	df2=df2.fillna('-')
-	
+	csv = convert_df(df2)
+
+	st.download_button(
+    		label="Download data as CSV",
+    		data=csv,
+    		file_name='data.csv',
+    		mime='text/csv',
+		)
 	
 	st.dataframe(df2)
 
