@@ -5,20 +5,7 @@ from google.oauth2 import service_account
 from google.cloud import bigquery
 
 st.set_page_config(page_title="BI-team", layout="wide")
-st.markdown(
-    """
-    <style>
-    [data-testid="stSidebar"][aria-expanded="true"] > div:first-child{
-        width: 350px;
-    }
-    [data-testid="stSidebar"][aria-expanded="false"] > div:first-child{
-        width: 350px;
-        margin-left: -350px;
-    }
-     
-    """,
-    unsafe_allow_html=True,
-)
+
 # streamlit_app.py
 
 
@@ -29,10 +16,10 @@ choice = st.sidebar.radio(
     "Select dataset",
     ('WEB','APP','TEST'))
 
-txt = st.text_area('AdvertisingSystem', '''Write list of domains here
+List_AdvertisingSystem= st.text_area('AdvertisingSystem', '''List of domains to search, Ex: ['A.com', 'B.com']
     ''')
 
-uploaded_file = st.sidebar.file_uploader("Choose a file")
+Upload_AdvertisingSystem= st.file_uploader("Upload a csv file")
 
 if uploaded_file is not None:
     # To read file as bytes:
