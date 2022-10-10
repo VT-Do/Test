@@ -16,6 +16,8 @@ choice = st.sidebar.radio(
     "Select dataset",
     ('WEB','APP','TEST'))
 
+col1, col2,col3 = st.columns(3)
+
 List_AdvertisingSystem= st.text_area('AdvertisingSystem', '''Ex: ['A.com', 'B.com']
     ''')
 
@@ -33,14 +35,14 @@ if Upload_AdvertisingSystem is not None:
 
 # st. set_page_config(layout="wide")
 
-col1, col2,col3 = st.columns(3)
+col4, col5,col6 = st.columns(3)
 
-with col1:
+with col4:
    st.image("images.png", width=80)
 
-with col2:
+with col5:
    st.title("📊 IAB dataset")
-with col3:
+with col6:
    st.write('')
 
 
