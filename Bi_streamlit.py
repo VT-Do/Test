@@ -17,12 +17,23 @@ choice = st.sidebar.radio(
     ('WEB','APP','TEST'))
 
 col1, col2,col3 = st.columns(3)
-
-List_AdvertisingSystem= st.text_area('AdvertisingSystem', '''Ex: ['A.com', 'B.com']
+with col1:
+	List_AdvertisingSystem= st.text_area('AdvertisingSystem', '''Ex: ['A.com', 'B.com']
     ''')
 
-Upload_AdvertisingSystem= st.file_uploader("Upload a csv file")
+	Upload_AdvertisingSystem= st.file_uploader("Upload a csv file")
+with col2:
+	List_AdvertisingSystem= st.text_area('AdvertisingSystem', '''Ex: ['A.com', 'B.com']
+    ''')
 
+	Upload_AdvertisingSystem= st.file_uploader("Upload a csv file")
+with col3:
+	List_AdvertisingSystem= st.text_area('AdvertisingSystem', '''Ex: ['A.com', 'B.com']
+    ''')
+
+	Upload_AdvertisingSystem= st.file_uploader("Upload a csv file")
+	
+	
 if Upload_AdvertisingSystem is not None:
     # To read file as bytes:
     #bytes_data = uploaded_file.getvalue()
