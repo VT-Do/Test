@@ -16,12 +16,12 @@ choice = st.sidebar.radio(
     "Select dataset",
     ('WEB','APP','TEST'))
 
-List_AdvertisingSystem= st.text_area('AdvertisingSystem', '''List of domains to search, Ex: ['A.com', 'B.com']
+List_AdvertisingSystem= st.text_area('AdvertisingSystem', '''Ex: ['A.com', 'B.com']
     ''')
 
 Upload_AdvertisingSystem= st.file_uploader("Upload a csv file")
 
-if uploaded_file is not None:
+if Upload_AdvertisingSystem is not None:
     # To read file as bytes:
     #bytes_data = uploaded_file.getvalue()
     #st.write(bytes_data)
