@@ -39,6 +39,10 @@ i2 = st.checkbox("reset button")
 
 
 
+ st.select_slider("Displayed values:", ["Normalized", "Absolute"])
+	
+	
+
 
 # st. set_page_config(layout="wide")
 
