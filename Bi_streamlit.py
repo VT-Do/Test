@@ -29,7 +29,7 @@ if Upload_lines is not None:
     #st.write(bytes_data)
 
     # Can be used wherever a "file-like" object is accepted:
-    dataframe1 = pd.read_csv(uploaded_file)
+    dataframe1 = pd.read_csv(upload_lines)
     st.write(dataframe1)
 
 
