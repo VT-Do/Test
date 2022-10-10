@@ -33,18 +33,14 @@ if uploaded_file is not None:
 	
 	
 
-i1 = st.button("button 1")
-st.write("value:", i1)
-
-i2 = st.checkbox("reset button")
-
+#i1 = st.button("button 1")
+#st.write("value:", i1)
+#i2 = st.checkbox("reset button")
 
 
 
 
-awesomeness_enabled = st_toggleswitch("Enable awesomeness")
-if awesomeness_enabled:
-    st.write("Awesomeness has been enabled!")
+
 
 
 # st. set_page_config(layout="wide")
