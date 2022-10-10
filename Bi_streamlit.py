@@ -28,6 +28,15 @@ if uploaded_file is not None:
     dataframe = pd.read_csv(uploaded_file)
     
     st.write('Uploaded data',dataframe)
+	
+	
+	
+
+i1 = st.button("button 1")
+st.write("value:", i1)
+
+i2 = st.checkbox("reset button")
+
 
 
 
