@@ -16,7 +16,7 @@ choice = st.sidebar.radio(
     "Select dataset",
     ('WEB','APP','TEST'))
 
-col1, col2= st.columns(3)
+col1, col2= st.columns(2)
 with col1:
 	List_AdvertisingSystem= st.text_area('AdvertisingSystem', '''Ex1: ['A.com', 'B.com']
     ''')
