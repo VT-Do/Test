@@ -3,6 +3,7 @@ import numpy as np
 import streamlit as st
 from google.oauth2 import service_account
 from google.cloud import bigquery
+from streamlit_toggle import st_toggleswitch
 
 st.set_page_config(page_title="BI-team", layout="wide")
 
@@ -39,7 +40,7 @@ i2 = st.checkbox("reset button")
 
 
 
-from streamlit_toggle import st_toggleswitch
+
 
 awesomeness_enabled = st_toggleswitch("Enable awesomeness")
 if awesomeness_enabled:
