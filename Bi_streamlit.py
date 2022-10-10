@@ -29,6 +29,9 @@ choice = st.sidebar.radio(
     "Select dataset",
     ('WEB','APP','TEST'))
 
+txt = st.text_area('AdvertisingSystem', '''Write list of domains here
+    ''')
+
 uploaded_file = st.sidebar.file_uploader("Choose a file")
 
 if uploaded_file is not None:
