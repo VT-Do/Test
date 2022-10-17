@@ -122,7 +122,7 @@ credentials = service_account.Credentials.from_service_account_info(
 )
 client = bigquery.Client(credentials=credentials)
 
-@st.cache(ttl=60)
+@st.cache()
 def load_data1(): 
     query1="SELECT * FROM `showheroes-bi.bi.Test`"
     query_job1 = client.query(query1)
@@ -131,7 +131,7 @@ def load_data1():
 
 
 @st.cache
-def load_data2(ttl=60):
+def load_data2():
     query2="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 1000"
     query_job2 = client.query(query2)
     return client.query(query2).to_dataframe().fillna('-')
