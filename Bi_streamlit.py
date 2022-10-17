@@ -131,7 +131,7 @@ st.write(Time)
 
 
 
-@st.cache(max_entries=1)
+@st.cache(max_entries=2)
 def load_data1(time): 
     query1="SELECT * FROM `showheroes-bi.bi.Test`"
     query_job1 = client.query(query1)
@@ -139,7 +139,7 @@ def load_data1(time):
 
 
 
-@st.cache(max_entries=1)
+@st.cache(max_entries=2)
 def load_data2(time):
     query2="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 1000"
     query_job2 = client.query(query2)
