@@ -121,12 +121,13 @@ credentials = service_account.Credentials.from_service_account_info(
     st.secrets["gcp_service_account"]
 )
 client = bigquery.Client(credentials=credentials)
-query="SELECT Date FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 1"
-query_job = client.query(query)
-rows = query_job.result()
-#for row in rows:
-    #st.write(row.Date)
-st.write(rows.Date)
+query="SELECT Date FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 
+df_time= client.query(query).to_dataframe()
+Time=df_time[Date]
+st.write(Time)
+
+
+
 
 @st.cache()
 def load_data1(): 
