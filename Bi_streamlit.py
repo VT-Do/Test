@@ -129,23 +129,23 @@ st.write(Time)
 
 
 
-@st.cache()
-def load_data1(): 
+@st.cache(max_entries=1)
+def load_data1(time): 
     query1="SELECT * FROM `showheroes-bi.bi.Test`"
     query_job1 = client.query(query1)
     return client.query(query1).to_dataframe().fillna('-')
 
 
 
-@st.cache
-def load_data2():
+@st.cache(max_entries=1)
+def load_data2(time):
     query2="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 1000"
     query_job2 = client.query(query2)
     return client.query(query2).to_dataframe().fillna('-')
 
-	
-df1=load_data1().copy()
-df2=load_data2().copy()
+test_value='AAA'
+df1=load_data1(test_value).copy()
+df2=load_data2(Time).copy()
 
 
 if (choice=="WEB") and (uploaded_file is not None):
