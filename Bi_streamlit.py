@@ -142,6 +142,7 @@ df2=load_data2().copy()
 
 
 if (choice=="WEB") and (uploaded_file is not None):
+    st.write(time.time())
     st.write(df1)
 	
 elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT'):
