@@ -122,6 +122,10 @@ credentials = service_account.Credentials.from_service_account_info(
 )
 client = bigquery.Client(credentials=credentials)
 
+    query="SELECT Date FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 1"
+    query_job = client.query(query)
+    st.write(query_job)
+
 @st.cache()
 def load_data1(): 
     query1="SELECT * FROM `showheroes-bi.bi.Test`"
