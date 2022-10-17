@@ -122,8 +122,9 @@ credentials = service_account.Credentials.from_service_account_info(
 )
 client = bigquery.Client(credentials=credentials)
 
-query_time1="SELECT Date FROM `showheroes-bi.bi.Test` limit 1"
+query_time1="SELECT A FROM `showheroes-bi.bi.Test` limit 1"
 df_time1= client.query(query_time1).to_dataframe()
+
 Time1=df_time1['A'][0]
 st.write(Time1)
 
