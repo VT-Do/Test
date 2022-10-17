@@ -146,7 +146,7 @@ def load_data1(time):
 
 @st.experimental_memo(max_entries=1)
 def load_data2(time):
-    query2="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 1000"
+    query2="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains`"
     query_job2 = client.query(query2)
     return client.query(query2).to_dataframe().fillna('-')
 
