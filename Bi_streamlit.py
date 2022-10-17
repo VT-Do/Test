@@ -150,8 +150,10 @@ def load_data2(time):
     query_job2 = client.query(query2)
     return client.query(query2).to_dataframe().fillna('-')
 
-df1=load_data1(Time1).copy()
-df2=load_data2(Time2).copy()
+df1=load_data1(Time1)
+df2=load_data2(Time2)
+
+df2['Test']='OK'
 
 
 if (choice=="WEB") and (uploaded_file is not None):
