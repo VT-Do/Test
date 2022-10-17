@@ -125,7 +125,7 @@ query="SELECT Date FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_cou
 query_job = client.query(query)
 rows = query_job.result()
 for row in rows:
-    st.write(rows)
+    st.write(row.Date)
 
 @st.cache()
 def load_data1(): 
