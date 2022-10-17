@@ -123,7 +123,7 @@ credentials = service_account.Credentials.from_service_account_info(
 client = bigquery.Client(credentials=credentials)
 query="SELECT Date FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 1"
 df_time= client.query(query).to_dataframe()
-Time=df_time['Date']
+Time=df_time['Date'][0]
 st.write(Time)
 
 
