@@ -125,7 +125,7 @@ query="SELECT Date FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_cou
 df_time= client.query(query).to_dataframe()
 Time=df_time['Date'][0]
 
-Time='AAA'
+Time='BBB'
 st.write(Time)
 
 
