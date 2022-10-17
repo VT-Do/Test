@@ -124,6 +124,8 @@ client = bigquery.Client(credentials=credentials)
 query="SELECT Date FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 1"
 df_time= client.query(query).to_dataframe()
 Time=df_time['Date'][0]
+
+Time='AAA'
 st.write(Time)
 
 
