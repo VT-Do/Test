@@ -142,24 +142,7 @@ df2=load_data2().copy()
 
 
 if (choice=="WEB") and (uploaded_file is not None):
-    # first filter before looping
-    df1=df1[(df1['AdvertisingSystem'].isin(upload_input[0])) & (df1['PubAccId'].isin(upload_input[1]))]
-    df1=df1.reset_index(drop=True)
-
-    # Initial setting
-    data1=pd.DataFrame(columns=df1.columns.tolist())
-	
-    for row in range(upload_input.shape[0]):
-        data1=pd.concat([data1, check_row(df1,upload_input,row)]) 
-    
-
-
-
-    
-	
-	
-    # Download 	
-    download(data1)
+    st.write(df1)
 	
 elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT'):
    
@@ -187,7 +170,7 @@ elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT'):
 	
 elif (choice=="APP") and (uploaded_file is not None):
 	
-    st.write(df1)
+    
 
     # first filter before looping
     df2=df2[(df2['AdvertisingSystem'].isin(upload_input[0])) & (df2['PubAccId'].isin(upload_input[1]))]
