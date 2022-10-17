@@ -131,7 +131,7 @@ st.write(Time1)
 query_time2="SELECT Date FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 1"
 df_time2= client.query(query_time2).to_dataframe()
 Time2=df_time2['Date'][0]
-st.write(Time2)
+st.write(str(Time2))
 
 
 
