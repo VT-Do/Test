@@ -121,10 +121,16 @@ credentials = service_account.Credentials.from_service_account_info(
     st.secrets["gcp_service_account"]
 )
 client = bigquery.Client(credentials=credentials)
-query="SELECT Date FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 1"
-df_time= client.query(query).to_dataframe()
-Time=df_time['Date'][0]
-st.write(Time)
+
+query_time1="SELECT Date FROM `showheroes-bi.bi.bi_Test` limit 1"
+df_time1= client.query(query_time1).to_dataframe()
+Time1=df_time1['Date'][0]
+st.write(Time1)
+
+query_time2="SELECT Date FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 1"
+df_time2= client.query(query_time2).to_dataframe()
+Time2=df_time2['Date'][0]
+st.write(Time2)
 
 
 
@@ -143,8 +149,8 @@ def load_data2(time):
     query_job2 = client.query(query2)
     return client.query(query2).to_dataframe().fillna('-')
 
-df1=load_data1(test_value).copy()
-df2=load_data2(Time).copy()
+df1=load_data1(Time1).copy()
+df2=load_data2(Time2).copy()
 
 
 if (choice=="WEB") and (uploaded_file is not None):
