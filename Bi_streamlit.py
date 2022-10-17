@@ -124,8 +124,9 @@ client = bigquery.Client(credentials=credentials)
 query="SELECT Date FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 1"
 query_job = client.query(query)
 rows = query_job.result()
-for row in rows:
-    st.write(row.Date)
+#for row in rows:
+    #st.write(row.Date)
+st.write(rows.Date)
 
 @st.cache()
 def load_data1(): 
