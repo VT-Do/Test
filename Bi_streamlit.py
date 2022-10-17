@@ -122,7 +122,7 @@ credentials = service_account.Credentials.from_service_account_info(
 )
 client = bigquery.Client(credentials=credentials)
 
-@st.cache
+@st.cache(ttl=60)
 def load_data1(): 
     query1="SELECT * FROM `showheroes-bi.bi.Test`"
     query_job1 = client.query(query1)
