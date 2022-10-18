@@ -126,7 +126,11 @@ query_time1="SELECT A FROM `showheroes-bi.bi.Test` limit 1"
 df_time1= client.query(query_time1).to_dataframe()
 
 Time1=df_time1['A'][0]
+Time1='AAA'
 st.write(Time1)
+
+if Time1='AAA':
+    caching.clear_memo_cache()
 
 query_time2="SELECT Date FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 1"
 df_time2= client.query(query_time2).to_dataframe()
