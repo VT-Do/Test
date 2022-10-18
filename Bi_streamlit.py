@@ -128,11 +128,9 @@ if 'key' not in st.session_state:
 
     Time1=df_time1['A'][0]
 
-
-
-   query_time2="SELECT Date FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 1"
-   df_time2= client.query(query_time2).to_dataframe()
-   Time2=df_time2['Date'][0]
+    query_time2="SELECT Date FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 1"
+    df_time2= client.query(query_time2).to_dataframe()
+    Time2=df_time2['Date'][0]
 
 
 
