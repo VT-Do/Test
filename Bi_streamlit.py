@@ -152,11 +152,14 @@ def load_data2(time):
 if st.session_state['Time1'] and st.session_state['Time2']:
     st.session_state['Time1']
     st.session_state['Time2']
+    
 
-    df1=load_data1(Time1)
-    df2=load_data2(Time2)
 
-    df2['Test']='OK'
+
+df1=load_data1(st.session_state['Time1'])
+df2=load_data2(st.session_state['Time2'])
+
+df2['Test']='OK'
 
 
 if (choice=="WEB") and (uploaded_file is not None):
