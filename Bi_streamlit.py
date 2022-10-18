@@ -134,8 +134,8 @@ if 'key' not in st.session_state:
 
 
 
-st.write(Time1)
-st.write(str(Time2))
+    st.write(Time1)
+    st.write(str(Time2))
 
 
 
