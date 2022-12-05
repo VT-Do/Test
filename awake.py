@@ -35,7 +35,7 @@ except TimeoutException:
     st.warning("Timed out waiting for page to load")
     driver.quit()
 
-time.sleep(10)
+time.sleep(3)
 elements = driver.find_elements_by_xpath(XPATH)
 st.write([el.text for el in elements])
 driver.quit()
