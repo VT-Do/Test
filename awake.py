@@ -10,7 +10,7 @@ from webdriver_manager.firefox import GeckoDriverManager
 URL = ""
 TIMEOUT = 20
 
-st.title("Test Selenium")
+st.write("Test Selenium")
 
 firefoxOptions = Options()
 firefoxOptions.add_argument("--headless")
