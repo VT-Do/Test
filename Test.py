@@ -168,7 +168,7 @@ if st.session_state["authentication_status"]:
 
         @st.cache(max_entries=1)
         def load_data1(time): 
-            query1="SELECT * except(Date) FROM `showheroes-bi.bi.bi_adstxt_join_sellersjson_with_count_domains` where PubAccId='156439'"
+            query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt` where DomainName='tokattan.com'"
             query_job1 = client.query(query1)
             return client.query(query1).to_dataframe().fillna('-')
 
