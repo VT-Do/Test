@@ -29,5 +29,5 @@ def load_data10():
     return client.query(query11).to_dataframe()
 
 
-df=load_data10()
+
 
