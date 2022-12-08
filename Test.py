@@ -88,10 +88,11 @@ if st.session_state["authentication_status"]:
         df['Relationship']=df['Relationship'].str.replace('\"','')
         df['Relationship'] = df['Relationship'].str.upper()
 	
-        st.dataframe(df.reset_index(drop=True),2000,2000)
+        # df['Domain']=df['Domain'].str.replace('\"','')
+        df['Domain'] = df['Domain'].str.lower()
 	
-# df['Domain']=df['Domain'].str.replace('\"','')
-df['Domain'] = df['Domain'].str.lower()
+	st.dataframe(df.reset_index(drop=True),2000,2000)
+	
     with tab3:
         col11, col12 = st.columns(2)
         with col11:
