@@ -33,9 +33,7 @@ if ('Time1' not in st.session_state) and ('Time2' not in st.session_state):
     df_time1= client.query(query_time1).to_dataframe()
     st.session_state['Time1']=df_time1['Date'][0]
 
-    query_time2="SELECT Date FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 1"
-    df_time2= client.query(query_time2).to_dataframe()
-    st.session_state['Time2']=df_time2['Date'][0]
+
 
 	
 st.write('Result')	
