@@ -9,12 +9,12 @@ import extra_streamlit_components as stx
 import smtplib
 
 st.set_page_config(layout="wide")
-container=st.container()
+#container=st.container()
 
 
 
 
-col4, col5,col6 = container.columns((4, 7, 1))
+col4, col5,col6 = st.columns((4, 7, 1))
 with col4:
     st.image("images.png", width=80)
 with col5:
@@ -38,6 +38,6 @@ if ('Time1' not in st.session_state) and ('Time2' not in st.session_state):
     df_time2= client.query(query_time2).to_dataframe()
     st.session_state['Time2']=df_time2['Date'][0]
 	
-	
+st.write('Result')	
 st.write(st.session_state['Time1'])
 
