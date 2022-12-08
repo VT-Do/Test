@@ -54,7 +54,7 @@ if st.session_state["authentication_status"]:
        authenticator.logout('Logout', 'main')
     
 	
-    tab1, tab2, tab3 = container.tabs(["From Ads.txt","Crawl from website", "Contact"])
+    tab1, tab2, tab3 = container.tabs(["From Ads.txt","Crawl from website", "Verified relationship"])
     with tab1:
        
 
@@ -95,18 +95,15 @@ if st.session_state["authentication_status"]:
         st.dataframe(df.reset_index(drop=True),2000,2000)
 	
     with tab3:
-        col11, col12 = st.columns(2)
-        with col11:
-            option = st.selectbox("Please choose type of contact",("Report an error", "Ask questions", "Comment"))
-            text_input = st.text_input(label='Your name or email')
-        with col12:
-            form = st.form(key='my_form')
-            text=form.text_area('Enter some text', '')
-            submit_button = form.form_submit_button(label='Submit')
-	
-        if submit_button and text !='':
-            st.success('Successfully submitted. Thank you for contacting us!', icon="✅")
+        @st.cache(max_entries=1)
+        def load_data2(time): 
+            query2 = "SELECT DomainName,AdvertisingSystem, PubAccId,Relationship,SellerDomain,SellerType FROM `showheroes-bi.bi.bi_adstxt_join_sellersjson` 
+where ((SellerDomain is not null) or (SellerName is not null) or (	
+SellerType is not null)) and (DomainName=SellerDomain)"
+            query_job2 = client.query(query2)
+            return client.query(query2).to_dataframe().fillna('-')
 
+        st.dataframe(load_data2('A').reset_index(drop=True),2000,2000)
 
 
 
