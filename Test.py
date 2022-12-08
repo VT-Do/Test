@@ -14,6 +14,13 @@ import smtplib
 st.set_page_config(layout="wide")
 container=st.container()
 
+@st.cache(max_entries=1)
+def load_data1(): 
+    query1="SELECT * except(Date) FROM `showheroes-bi.bi.bi_adstxt_join_sellersjson_with_count_domains` limit 10"
+     query_job1 = client.query(query1)
+     return client.query(query1).to_dataframe().fillna('-')
+
+        
 domainname = st.sidebar.text_input('Put a domain here', '')
 st.sidebar.write('The current domain', domainname)
 
@@ -26,5 +33,6 @@ with col5:
 with col6:
     st.write('')
 
-    
+df= load_data1().copy() 
 st.write('Result')
+st.write(df)
