@@ -63,7 +63,7 @@ if st.session_state["authentication_status"]:
 	
         @st.cache(max_entries=1)
         def load_data1(time): 
-            query1 = "SELECT * FROM `showheroes-bi.bi.bi_adstxt` WHERE  DomainName= 'tokattan.com'"
+            query1 = """SELECT * FROM `showheroes-bi.bi.bi_adstxt` WHERE  DomainName={}""".format('tokattan.com')
             query_job1 = client.query(query1)
             return client.query(query1).to_dataframe().fillna('-')
 
