@@ -82,8 +82,8 @@ with col03:
 
 if st.session_state["authentication_status"]:
 
-    domainname = st.text_input('Write domain here', '')
-    st.write('The current domain:', domainname)
+    domainname = st.sidebar.text_input('Write domain here', '')
+    st.sidebar.write('The current domain:', domainname)
 
 
 
@@ -111,11 +111,7 @@ if st.session_state["authentication_status"]:
         if ('Time1' not in st.session_state) and ('Time2' not in st.session_state):
             query_time1="SELECT Date FROM `showheroes-bi.bi.bi_adstxt_join_sellersjson_with_count_domains` limit 1"
             df_time1= client.query(query_time1).to_dataframe()
-            st.session_state['Time1']=df_time1['Date'][0]
-
-            query_time2="SELECT Date FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 1"
-            df_time2= client.query(query_time2).to_dataframe()
-            st.session_state['Time2']=df_time2['Date'][0]
+            st.session_state['Time1']=df_time1['Date'][0
 
 	
 
@@ -128,14 +124,6 @@ if st.session_state["authentication_status"]:
 
         st.write(load_data1('A'))
 
-        @st.cache(max_entries=1)
-        def load_data2(time):
-            query2="SELECT * except(Date) FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 100"
-            query_job2 = client.query(query2)
-            return client.query(query2).to_dataframe().fillna('-')
-	
-        df1=load_data1(st.session_state['Time1']).copy()
-        df2=load_data2(st.session_state['Time2']).copy()
     with tab2: 
         col07, col08 = st.columns(2)
         with col07:
