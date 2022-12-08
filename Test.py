@@ -31,5 +31,5 @@ def load_data10(time):
     return client.query(query1).to_dataframe()
 
 
-df1=load_data10('A').copy()
+df=load_data10('A').copy()
 st.write(df)
