@@ -53,7 +53,7 @@ if st.session_state["authentication_status"]:
        authenticator.logout('Logout', 'main')
     
 	
-    tab1, tab2, tab3 = container.tabs(["Main","Documentation", "Contact"])
+    tab1, tab2, tab3 = container.tabs(["From Ads.txt","Crawl from website", "Contact"])
     with tab1:
        
 
@@ -69,24 +69,27 @@ if st.session_state["authentication_status"]:
 
         st.dataframe(load_data1('A').reset_index(drop=True),2000,2000)
     with tab2: 
-        col07, col08 = st.columns(2)
-        with col07:
-            with st.expander("Main dataset"):
-                st.write("""Write something here """)
-           #     st.image("https://static.streamlit.io/examples/dice.jpg")
-        with col08:
-            with st.expander("Invironment"):
-                st.write("""Write something here. """)
-       #         st.image("https://static.streamlit.io/examples/dice.jpg")
-        col09, col10 = st.columns(2)
-        with col09:
-            with st.expander("Upload file"):
-                st.write("""Write something here. """)
-          #      st.image("https://static.streamlit.io/examples/dice.jpg")
-        with col10:
-            with st.expander("Write/paste option"):
-                st.write("""Write something here. """)
-         #       st.image("https://static.streamlit.io/examples/dice.jpg")
+        text=[]
+        response = requests.get('https://tokattan.com/ads.txt')
+        data = response.text
+        for i, line in enumerate(data.split('\n')):
+            if line.count(',')==3 :
+                text.append(line.split(','))
+            elif line.count(',')==2:
+                test=line.split(',')
+                test.append('')
+                text.append(test)
+	st.dataframe(text.reset_index(drop=True),2000,2000)
+        
+  #      print(f'{i}   {line}')
+df=pd.DataFrame(text, columns = ['Domain', 'Account Id','Relationship','Certification Authority ID'])
+
+df['Relationship']=df['Relationship'].str.replace(' ','')
+df['Relationship']=df['Relationship'].str.replace('\"','')
+df['Relationship'] = df['Relationship'].str.upper()
+
+# df['Domain']=df['Domain'].str.replace('\"','')
+df['Domain'] = df['Domain'].str.lower()
     with tab3:
         col11, col12 = st.columns(2)
         with col11:
