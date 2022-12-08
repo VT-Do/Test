@@ -25,3 +25,13 @@ with col5:
     st.title("📊 IAB dataset")
 with col6:
     st.write('')
+
+    
+    
+query1="""SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains`
+where PubAccId={}
+""".format('1356')
+df= client.query(query1).to_dataframe().fillna('-')
+
+st.write('Result')
+st.write(df)
