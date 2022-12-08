@@ -16,51 +16,6 @@ container=st.container()
 
 
 
-
-# col=0 (advertisingsystem), 1 (PubAccId) , 2 (Relationship),  
-def check(df,col,keyword):
-    list=df[col][~df[col].str.contains(keyword)].tolist()
-    if len(list)>0:
-        return list
-    else:
-        return False
-
-# Check if AvertisingSystem contains '.' or Relationship is not DIRECT or RESELLER
-def return_input_error(input):
-    if check(input,0,'\.'):
-        st.sidebar.write('Check AdvertisingSystem:')
-        st.sidebar.write(check(input,0,'\.'))
-    if check(input,2,'DIRECT|RESELLER'):
-        st.sidebar.write('Check Relationship:')
-        st.sidebar.write(check(input,2,'DIRECT|RESELLER'))
-
-
-# df[0] (advertisingsystem), df[1] (PubAccId) , df[2] (Relationship),  
-def check_row(df,input_data,row):
-    df_filtered=df[(df['AdvertisingSystem']==input_data[0][row])&(df['PubAccId']==input_data[1][row])&(df['Relationship']==input_data[2][row])]
-    if df_filtered.shape[0]>0:
-        return df_filtered
-    else:
-        return None
-	
-#download
-def download(output_data):
-    if output_data.shape[0]>0:    
-        csv = output_data.to_csv(index=False).encode('utf-8')
-        st.download_button(
-    		label="Download ouput as CSV",
-    		data=csv,
-    		file_name='data.csv',
-    		mime='text/csv',
-		)
-	
-        st.dataframe(output_data.reset_index(drop=True),2100,1000)
-
-    else:
-        st.write('')
-        st.write('No output found')
-	
-
 	
 	
 	
@@ -82,7 +37,7 @@ with col03:
 
 if st.session_state["authentication_status"]:
 
-    domainname = st.sidebar.text_input('Write domain here', '')
+    domainname = st.sidebar.text_input('Insert domain here', '')
     st.sidebar.write('The current domain:', domainname)
 
 
