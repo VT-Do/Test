@@ -27,12 +27,4 @@ with col6:
     st.write('')
 
     
-@st.experimental_memo(max_entries=1)
-def load_data1(time): 
-    query1="SELECT * except(Date) FROM `showheroes-bi.bi.bi_adstxt_join_sellersjson_with_count_domains` limit 10"
-    query_job1 = client.query(query1)
-    return client.query(query1).to_dataframe().fillna('-')
-
-df=load_data1(domainname)
 st.write('Result')
-st.write(df)
