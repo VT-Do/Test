@@ -12,6 +12,7 @@ import smtplib
 
 
 st.set_page_config(layout="wide")
+container=st.container()
 
 col4, col5,col6 = container.columns((4, 7, 1))
 
