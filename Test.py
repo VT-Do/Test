@@ -79,15 +79,17 @@ if st.session_state["authentication_status"]:
                 test=line.split(',')
                 test.append('')
                 text.append(test)
-        st.dataframe(text.reset_index(drop=True),2000,2000)
         
-  #      print(f'{i}   {line}')
-df=pd.DataFrame(text, columns = ['Domain', 'Account Id','Relationship','Certification Authority ID'])
+        
+        # print(f'{i}   {line}')
+        df=pd.DataFrame(text, columns = ['Domain', 'Account Id','Relationship','Certification Authority ID'])
 
-df['Relationship']=df['Relationship'].str.replace(' ','')
-df['Relationship']=df['Relationship'].str.replace('\"','')
-df['Relationship'] = df['Relationship'].str.upper()
-
+        df['Relationship']=df['Relationship'].str.replace(' ','')
+        df['Relationship']=df['Relationship'].str.replace('\"','')
+        df['Relationship'] = df['Relationship'].str.upper()
+	
+        st.dataframe(df.reset_index(drop=True),2000,2000)
+	
 # df['Domain']=df['Domain'].str.replace('\"','')
 df['Domain'] = df['Domain'].str.lower()
     with tab3:
