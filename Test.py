@@ -17,8 +17,8 @@ container=st.container()
 @st.cache(max_entries=1)
 def load_data1(): 
     query1="SELECT * except(Date) FROM `showheroes-bi.bi.bi_adstxt_join_sellersjson_with_count_domains` limit 10"
-     query_job1 = client.query(query1)
-     return client.query(query1).to_dataframe().fillna('-')
+    query_job1 = client.query(query1)
+    return client.query(query1).to_dataframe().fillna('-')
 
         
 domainname = st.sidebar.text_input('Put a domain here', '')
