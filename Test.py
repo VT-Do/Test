@@ -28,9 +28,8 @@ with col6:
 
     
     
-query1="""SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains`
-where PubAccId='1356'
-"""
+query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains`
+WHERE PubAccId ='1356'"
 df= client.query(query1).to_dataframe().fillna('-')
 
 st.write('Result')
