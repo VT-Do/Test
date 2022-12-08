@@ -26,9 +26,9 @@ with col6:
 	
 #@st.cache(max_entries=1)
 def load_data10(): 
-    query1="SELECT * except(Date) FROM `showheroes-bi.bi.bi_adstxt_join_sellersjson_with_count_domains`"
-    query_job1 = client.query(query1)
-    return client.query(query1).to_dataframe()
+    query11="SELECT * except(Date) FROM `showheroes-bi.bi.bi_adstxt_join_sellersjson_with_count_domains`"
+    query_job1 = client.query(query11)
+    return client.query(query11).to_dataframe()
 
 
 df=load_data10().copy()
