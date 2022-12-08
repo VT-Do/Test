@@ -30,7 +30,7 @@ def load_data10():
 
 
 if ('Time1' not in st.session_state) and ('Time2' not in st.session_state):
-    query_time1="SELECT A FROM `showheroes-bi.bi.Test` limit 1"
+    query_time1="SELECT date FROM `showheroes-bi.bi.Test` limit 1"
     df_time1= client.query(query_time1).to_dataframe()
     st.session_state['Time1']=df_time1['A'][0]
 
