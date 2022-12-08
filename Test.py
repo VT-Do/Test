@@ -4,8 +4,6 @@ import streamlit as st
 from google.oauth2 import service_account
 from google.cloud import bigquery
 from io import StringIO
-import streamlit_authenticator as stauth
-import yaml
 import time
 import extra_streamlit_components as stx
 import smtplib
