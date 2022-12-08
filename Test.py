@@ -67,7 +67,7 @@ if st.session_state["authentication_status"]:
             query_job1 = client.query(query1)
             return client.query(query1).to_dataframe().fillna('-')
 
-        st.dataframe(load_data1('A').reset_index(drop=True),2100,1000)
+        st.dataframe(load_data1('A').reset_index(drop=True),2100,1500)
     with tab2: 
         col07, col08 = st.columns(2)
         with col07:
