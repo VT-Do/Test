@@ -173,7 +173,7 @@ if st.session_state["authentication_status"]:
             return client.query(query1).to_dataframe().fillna('-')
 
 
-        st.write(load_data1(st.session_state['Time1']))
+        st.write('A')
 
         @st.cache(max_entries=1)
         def load_data2(time):
