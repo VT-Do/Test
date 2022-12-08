@@ -86,49 +86,6 @@ list_lines='Ex: google.com, 12335, DIRECT'
 if st.session_state["authentication_status"]:
 
     choice =st.sidebar.radio("Select invironment",('WEB','APP'), horizontal=True)
-    choice2 = st.sidebar.radio("Insert input",('Upload','Type/Paste'), horizontal=True)
-
-    if choice2=='Upload':
-        uploaded_file = st.sidebar.file_uploader("Choose a .csv file")
-
-        if uploaded_file is not None:
-            bytes_data = uploaded_file.getvalue()
-	
-            try:
-                upload_input=pd.read_csv(uploaded_file,header=None)
-                n=upload_input.shape[0]
-	
-	        # Clean
-                upload_input[0]=upload_input[0].str.replace(' ', '').str.replace('\t','').str.lower()   
-                upload_input[1]=upload_input[1].astype('string').str.replace(' ', '').str.replace('\t','').str.lower()
-                upload_input[2]=upload_input[2].str.replace(' ', '').str.replace('\t','').str.upper()
-	    
-                return_input_error(upload_input)
-                st.sidebar.dataframe(upload_input)
-		
-            except Exception as ex:
-                st.sidebar.error('Please check the input format')
-                uploaded_file=None
-        
-
-    elif choice2=='Type/Paste':
-        list_lines= st.sidebar.text_area('Put lines here', 'Ex: google.com, 12335, DIRECT')
-     
-        try:
-            input=pd.read_table(StringIO(list_lines),sep=",", header=None)
-	
-            # Clean
-            input[0]=input[0].str.replace(' ','').str.replace('\t','').str.lower()
-            input[1]=input[1].astype('string').str.replace(' ','').str.replace('\t','').str.lower()
-            input[2]=input[2].str.replace(' ','').str.replace('\t','').str.upper()
-            input=input.drop_duplicates()
-            if list_lines !='Ex: google.com, 12335, DIRECT' and list_lines.strip()!='':
-                return_input_error(input)
-                st.sidebar.write('Input data',input)
-        except:
-            st.sidebar.error('Please check the input format')
-            list_lines=''
-
 
 
 
@@ -183,67 +140,6 @@ if st.session_state["authentication_status"]:
 	
         df1=load_data1(st.session_state['Time1']).copy()
         df2=load_data2(st.session_state['Time2']).copy()
-
-
-        if (choice=="WEB") and (uploaded_file is not None):
-            # first filter before looping
-            df1=df1[(df1['AdvertisingSystem'].isin(upload_input[0])) & (df1['PubAccId'].isin(upload_input[1]))]
-            df1=df1.reset_index(drop=True)
-
-            # Initial setting
-            data1=pd.DataFrame(columns=df1.columns.tolist())
-	
-            for row in range(upload_input.shape[0]):
-                data1=pd.concat([data1, check_row(df1,upload_input,row)]) 
-    
-    
-            # Download 	
-            download(data1)
-	
-        elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT') and (list_lines.strip()!=''):
-            # first filter 
-            df1=df1[(df1['AdvertisingSystem'].isin(input[0])) & (df1['PubAccId'].isin(input[1]))]
-            df1=df1.reset_index(drop=True)
-    
-            data1=pd.DataFrame(columns=df1.columns.tolist())
-	
-            for row in range(input.shape[0]):
-                data1=pd.concat([data1, check_row(df1,input,row)]) 
-    
-
-            # Download 
-            download(data1)
-    
-	
-        elif (choice=="APP") and (uploaded_file is not None):   
-            # first filter 
-            df2=df2[(df2['AdvertisingSystem'].isin(upload_input[0])) & (df2['PubAccId'].isin(upload_input[1]))]
-            df2=df2.reset_index(drop=True)
-
-
-            # Initial setting
-            data2=pd.DataFrame(columns=df2.columns.tolist())
-	
-            for row in range(upload_input.shape[0]):
-                data2=pd.concat([data2, check_row(df2,upload_input,row)]) 
-    
-
-            # Download 	
-            download(data2)
-
-	
-        elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT') and (list_lines.strip()!=''):
-            # first filter
-            df2=df2[(df2['AdvertisingSystem'].isin(input[0])) & (df2['PubAccId'].isin(input[1]))]
-            df2=df2.reset_index(drop=True)
-	
-            data2=pd.DataFrame(columns=df2.columns.tolist())
-	
-            for row in range(input.shape[0]):
-                data2=pd.concat([data2, check_row(df2,input,row)]) 
-
-            # Download
-            download(data2)
     with tab2: 
         col07, col08 = st.columns(2)
         with col07:
