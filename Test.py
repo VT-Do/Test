@@ -105,16 +105,7 @@ if st.session_state["authentication_status"]:
         # Create API client.
         credentials = service_account.Credentials.from_service_account_info(st.secrets["gcp_service_account"])
         client = bigquery.Client(credentials=credentials)
-
-
-
-        if ('Time1' not in st.session_state) and ('Time2' not in st.session_state):
-            query_time1="SELECT Date FROM `showheroes-bi.bi.bi_adstxt_join_sellersjson_with_count_domains` limit 1"
-            df_time1= client.query(query_time1).to_dataframe()
-            st.session_state['Time1']=df_time1['Date'][0
-
 	
-
         @st.cache(max_entries=1)
         def load_data1(time): 
             query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt` where DomainName='tokattan.com'"
