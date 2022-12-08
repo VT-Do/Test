@@ -78,14 +78,11 @@ with col03:
     st.write('')
 
 
-# initial setting
-uploaded_file=None
-list_lines='Ex: google.com, 12335, DIRECT'
-
 
 if st.session_state["authentication_status"]:
 
-    choice =st.sidebar.radio("Select invironment",('WEB','APP'), horizontal=True)
+    domainname = st.text_input('Write domain here', '')
+    st.write('The current domain: ', domainname)
 
 
 
@@ -110,19 +107,6 @@ if st.session_state["authentication_status"]:
         credentials = service_account.Credentials.from_service_account_info(st.secrets["gcp_service_account"])
         client = bigquery.Client(credentials=credentials)
 
-
-
-        if ('Time1' not in st.session_state) and ('Time2' not in st.session_state):
-            query_time1="SELECT Date FROM `showheroes-bi.bi.bi_adstxt_join_sellersjson_with_count_domains` limit 1"
-            df_time1= client.query(query_time1).to_dataframe()
-            st.session_state['Time1']=df_time1['Date'][0]
-
-            query_time2="SELECT Date FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 1"
-            df_time2= client.query(query_time2).to_dataframe()
-            st.session_state['Time2']=df_time2['Date'][0]
-
-	
-
         @st.cache(max_entries=1)
         def load_data1(time): 
             query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt` where DomainName='tokattan.com'"
@@ -132,14 +116,8 @@ if st.session_state["authentication_status"]:
 
         st.write(load_data1('A'))
 
-        @st.cache(max_entries=1)
-        def load_data2(time):
-            query2="SELECT * except(Date) FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 100"
-            query_job2 = client.query(query2)
-            return client.query(query2).to_dataframe().fillna('-')
-	
-        df1=load_data1(st.session_state['Time1']).copy()
-        df2=load_data2(st.session_state['Time2']).copy()
+    
+
     with tab2: 
         col07, col08 = st.columns(2)
         with col07:
