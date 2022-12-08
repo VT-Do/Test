@@ -28,15 +28,15 @@ def load_data10():
     query_job1 = client.query(query11)
     return client.query(query11).to_dataframe()
 
-
 if ('Time1' not in st.session_state) and ('Time2' not in st.session_state):
-    query_time1="SELECT date FROM `showheroes-bi.bi.Test` limit 1"
+    query_time1="SELECT Date FROM `showheroes-bi.bi.bi_adstxt_join_sellersjson_with_count_domains` limit 1"
     df_time1= client.query(query_time1).to_dataframe()
-    st.session_state['Time1']=df_time1['A'][0]
+    st.session_state['Time1']=df_time1['Date'][0]
 
     query_time2="SELECT Date FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 1"
     df_time2= client.query(query_time2).to_dataframe()
     st.session_state['Time2']=df_time2['Date'][0]
+
 	
 st.write('Result')	
 st.write(st.session_state['Time1'])
