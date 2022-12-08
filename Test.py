@@ -97,9 +97,7 @@ if st.session_state["authentication_status"]:
     with tab3:
         @st.cache(max_entries=1)
         def load_data2(time): 
-            query2 = "SELECT DomainName,AdvertisingSystem, PubAccId,Relationship,SellerDomain,SellerType FROM `showheroes-bi.bi.bi_adstxt_join_sellersjson` 
-where ((SellerDomain is not null) or (SellerName is not null) or (	
-SellerType is not null)) and (DomainName=SellerDomain)"
+            query2 = "SELECT DomainName,AdvertisingSystem, PubAccId,Relationship,SellerDomain,SellerType FROM `showheroes-bi.bi.bi_adstxt_join_sellersjson` where ((SellerDomain is not null) or (SellerName is not null) or (SellerType is not null)) and (DomainName=SellerDomain)"
             query_job2 = client.query(query2)
             return client.query(query2).to_dataframe().fillna('-')
 
