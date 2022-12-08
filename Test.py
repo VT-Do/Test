@@ -24,7 +24,7 @@ with col5:
 with col6:
     st.write('')
 	
-@st.cache(max_entries=1)
+#@st.cache(max_entries=1)
 def load_data10(time): 
     query1="SELECT * except(Date) FROM `showheroes-bi.bi.bi_adstxt_join_sellersjson_with_count_domains`"
     query_job1 = client.query(query1)
