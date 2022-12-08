@@ -91,7 +91,7 @@ if st.session_state["authentication_status"]:
         # df['Domain']=df['Domain'].str.replace('\"','')
         df['Domain'] = df['Domain'].str.lower()
 	
-	st.dataframe(df.reset_index(drop=True),2000,2000)
+        st.dataframe(df.reset_index(drop=True),2000,2000)
 	
     with tab3:
         col11, col12 = st.columns(2)
