@@ -71,7 +71,7 @@ if st.session_state["authentication_status"]:
         st.dataframe(load_data1('A').reset_index(drop=True),2000,2000)
     with tab2: 
         text=[]
-	if domainname !='':
+        if domainname !='':
             response = requests.get('https://'+domainname+'/ads.txt')
             data = response.text
             for i, line in enumerate(data.split('\n')):
