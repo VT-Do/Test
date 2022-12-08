@@ -78,14 +78,12 @@ with col03:
     st.write('')
 
 
-# initial setting
-uploaded_file=None
-list_lines='Ex: google.com, 12335, DIRECT'
 
 
 if st.session_state["authentication_status"]:
 
-    choice =st.sidebar.radio("Select invironment",('WEB','APP'), horizontal=True)
+    domainname = st.text_input('Write domain here', '')
+    st.write('The current domain:', domainname)
 
 
 
