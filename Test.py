@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import streamlit as st
+import requests
 from google.oauth2 import service_account
 from google.cloud import bigquery
 from io import StringIO
