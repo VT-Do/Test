@@ -28,8 +28,7 @@ with col6:
 def load_data10(time): 
     query1="SELECT * except(Date) FROM `showheroes-bi.bi.bi_adstxt_join_sellersjson_with_count_domains`"
     query_job1 = client.query(query1)
-    return client.query(query1).to_dataframe().fillna('-')
-
+    return client.query(query1).to_dataframe()
 
 
 df1=load_data10('A').copy()
