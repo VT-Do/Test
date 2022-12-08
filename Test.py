@@ -14,6 +14,9 @@ import smtplib
 st.set_page_config(layout="wide")
 container=st.container()
 
+domainname = st.sidebar.text_input('Put a domain here', '')
+st.sidebar.write('The current domain', domainname)
+
 col4, col5,col6 = container.columns((4, 7, 1))
 
 with col4:
