@@ -68,7 +68,7 @@ if st.session_state["authentication_status"]:
             query_job1 = client.query(query1)
             return client.query(query1).to_dataframe().fillna('-')
 
-        st.dataframe(load_data1('A').reset_index(drop=True),2000,2000)
+        st.dataframe(load_data1('A').reset_index(drop=True),1950,2000)
     with tab2: 
         text=[]
         if domainname !='':
