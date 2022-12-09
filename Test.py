@@ -68,7 +68,7 @@ if st.session_state["authentication_status"]:
             query_job1 = client.query(query1)
             return client.query(query1).to_dataframe().fillna('-')
 
-        st.dataframe(load_data1('A').reset_index(drop=True),1800,1800)
+        st.dataframe(load_data1('A').reset_index(drop=True),2000,1800)
     with tab2: 
         text=[]
         if domainname !='':
@@ -93,7 +93,7 @@ if st.session_state["authentication_status"]:
             # df['Domain']=df['Domain'].str.replace('\"','')
             df['Domain'] = df['Domain'].str.lower()
 	
-            st.dataframe(df.reset_index(drop=True),1700,1800)
+            st.dataframe(df.reset_index(drop=True),1800,1800)
 	
     with tab3:
         @st.cache(max_entries=1)
